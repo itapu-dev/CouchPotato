@@ -24,7 +24,7 @@
             <md-icon style="padding-right: 16px; color: #000000">person_add_disabled</md-icon>
             <p>Anonimus user</p>
         </md-list-item>
-        <md-list-item ng-href="javascript:;" ng-click="init">
+        <md-list-item ng-href="javascript:;" ng-click="selectAction('mysha')">
             <md-icon style="padding-right: 16px; color: #000000">graphic_eq</md-icon>
             <p>MyS@H</p>
         </md-list-item>
@@ -94,7 +94,7 @@
                         </md-input-container>
                     </div>
                 </md-content>
-                <p>error {{respData}}</p>
+
             </div>
             <md-divider></md-divider>
             <div layout="row" layout-align="space-around center" flex="20">
@@ -153,10 +153,11 @@
 
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">Diamond (ico) </span>
+                    <span class="md-headline">Diamond</span>
+                    <span class="md-headline"><img ng-src="img/po.png" style="width: 55px;display: inline-block;" class="md-card-image" alt="Washed Out"></span>
                     <span class="">
                         Score: 6,6k
-                        <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-button class="md-icon-button" ng-click="shareResult()" aria-label="Favorite">
                             <md-icon style="padding-right: 16px; color: #000000">share</md-icon>
                         </md-button>
                     </span>
@@ -202,6 +203,28 @@
                 <md-button class="md-icon-button" aria-label="Share">
                     <md-icon style="padding-right: 16px; color: #000000">not_listed_location</md-icon>
                 </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
+
+
+<div id="mysha" ng-show="selectedModule == 'mysha'">
+    <div flex-xs="" flex-gt-xs="50" layout="column">
+        <md-card style="margin-top: 64px;">
+            <md-card-title>
+                <md-card-title-text>
+                    <canvas id="myChart" width="auto" height="200"></canvas>
+
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+
+
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+
+
             </md-card-actions>
         </md-card>
     </div>

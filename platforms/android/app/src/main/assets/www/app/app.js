@@ -21,6 +21,7 @@ angular.module("ngapp", [ "ui.router", "ngMaterial", "ngCordova", "ngStorage" ])
 
 .config(function($mdThemingProvider, $mdGestureProvider) { // Angular-Material Color Theming
   $mdGestureProvider.skipClickHijack();
+
   $mdThemingProvider.theme('default')
     .primaryPalette('red')
     .accentPalette('blue');
