@@ -1,0 +1,208 @@
+<md-toolbar flex style="position: fixed;">
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <md-button class="md-icon-button" aria-label="Menu" ng-click="main.toggle()">
+            <md-icon>menu</md-icon>
+        </md-button>
+        <p>{{ main.title }}</p>
+        <div style="width: 40px; height: 40px;"></div>
+    </div>
+</md-toolbar>
+<md-sidenav class="md-sidenav-left" md-component-id="left">
+    <md-toolbar>
+        <h1 class="md-toolbar-tools">Navigation</h1>
+    </md-toolbar>
+    <md-list ng-cloak>
+        <md-list-item ng-click="selectAction('main')">
+            <md-icon style="padding-right: 16px; color: #000000">house</md-icon>
+            <p>Home</p>
+        </md-list-item>
+        <md-list-item ng-click="selectAction('login')">
+            <md-icon style="padding-right: 16px; color: #000000">perm_identity</md-icon>
+            <p>Login</p>
+        </md-list-item>
+        <md-list-item ng-href="javascript:;" ng-click="init">
+            <md-icon style="padding-right: 16px; color: #000000">person_add_disabled</md-icon>
+            <p>Anonimus user</p>
+        </md-list-item>
+        <md-list-item ng-href="javascript:;" ng-click="init">
+            <md-icon style="padding-right: 16px; color: #000000">graphic_eq</md-icon>
+            <p>MyS@H</p>
+        </md-list-item>
+        <md-list-item ng-href="javascript:;" ng-click="init">
+            <md-icon style="padding-right: 16px; color: #000000">people</md-icon>
+            <p>Friends</p>
+        </md-list-item>
+        <md-list-item ng-href="javascript:;" ng-click="init">
+            <md-icon style="padding-right: 16px; color: #000000">emoji_events</md-icon>
+            <p>Trophies </p>
+        </md-list-item>
+    </md-list>
+</md-sidenav>
+
+<div id="mainModule" ng-show="selectedModule == 'main'">
+    <div layout="column" layout-align="center center" flex>
+        <md-whiteframe class="md-whiteframe-3dp" layout="column"
+                       style="margin: 1em; margin-top: 71px; width: auto; height: auto; overflow: auto"
+                       flex="50">
+            <div layout="column" flex style="margin-left: 1em;">
+                <div flex="50" style="margin: auto; margin-top: 5px">
+                    <img ng-src="img/sleep_1.jpg" style="width: 95%;" class="md-card-image" alt="Washed Out">
+                </div>
+                <h4>stay@home</h4>
+                <p>Have you always been referred to as a couch potato? Congratulations, now you can finally use this
+                    talent and challenge your friends.</p>
+                <div flex="50" style="margin: auto; margin-top: 5px">
+                    <img ng-src="img/sleep_2.jpg" style="width: 95%;" class="md-card-image" alt="Washed Out">
+                </div>
+                <h4>How?</h4>
+                <p>Invite them to the CouchPotatoe&trade; challenge and track the time everyone spends at home. Those
+                    who endure the longest get the most points and thus increase their trophy collection</p>
+                <div flex="50" style="margin: auto; margin-top: 5px">
+                    <img ng-src="img/sleep_3.jpg" style="width: 95%;" class="md-card-image" alt="Washed Out">
+                </div>
+                <h4>Why?</h4>
+                <p>For your own protection, for the protection of the older generation and to support the optimal coping
+                    with this exceptional situation, each individual contributes to the virus not spreading any
+                    further.</p>
+                <h4>So:</h4>
+                <p>Join in, stay@home and be a couch potato and part of an immensely important movement: WirVsVirus</p>
+            </div>
+            <md-divider></md-divider>
+            <div layout="row" layout-align="space-around center" flex="50">
+
+            </div>
+        </md-whiteframe>
+    </div>
+</div>
+
+
+<div id="loginModule" ng-show="selectedModule == 'login'">
+    <div layout="column" layout-align="center center" flex>
+        <md-whiteframe class="md-whiteframe-3dp" layout="column"
+                       style="margin: 1em; margin-top: 71px; width: auto; height: auto; overflow: auto" flex>
+            <div layout="column" flex style="margin-left: 1em;">
+                <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                    <div>
+                        <md-input-container style="width: 100%;margin-left: -11px;">
+                            <label>Email</label>
+                            <input ng-model="login.user" type="email">
+                        </md-input-container>
+
+                        <md-input-container style="width: 100%;margin-left: -11px;">
+                            <label>Password</label>
+                            <input type="password" ng-model="login.password">
+                        </md-input-container>
+                    </div>
+                </md-content>
+                <p>error {{respData}}</p>
+            </div>
+            <md-divider></md-divider>
+            <div layout="row" layout-align="space-around center" flex="20">
+                <md-button ng-click="submitLogin()" class="md-raised md-primary">Login</md-button>
+                <md-button ng-click="cardSelectAction('register')" class="md-raised md-primary">Register</md-button>
+            </div>
+        </md-whiteframe>
+    </div>
+</div>
+
+
+<div id="registerModule" ng-show="selectedModule == 'register'">
+    <div layout="column" layout-align="center center" flex>
+        <md-whiteframe class="md-whiteframe-3dp" layout="column"
+                       style="margin: 1em; margin-top: 71px; width: auto; height: auto; overflow: auto" flex>
+            <div layout="column" flex style="margin-left: 1em;">
+                <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
+                    <div>
+                        <md-input-container style="width: 100%;margin-left: -11px;">
+                            <label>Name</label>
+                            <input ng-model="register.name" type="text">
+                        </md-input-container>
+
+                        <md-input-container style="width: 100%;margin-left: -11px;">
+                            <label>Email</label>
+                            <input ng-model="register.email" type="email">
+                        </md-input-container>
+
+                        <md-input-container style="width: 100%;margin-left: -11px;">
+                            <label>Password</label>
+                            <input type="password" ng-model="register.password">
+                        </md-input-container>
+
+                        <md-input-container style="width: 100%;margin-left: -11px;">
+                            <label>Confirm password</label>
+                            <input type="password ng-model=" register.password_confirmation">
+                        </md-input-container>
+                    </div>
+                </md-content>
+            </div>
+            <md-divider></md-divider>
+            <div layout="row" layout-align="space-around center" flex="20">
+                <md-button ng-click="submitRegister()" class="md-raised md-primary">Register</md-button>
+            </div>
+        </md-whiteframe>
+    </div>
+</div>
+
+
+<div id="logged" ng-show="selectedModule == 'logged'">
+    <div flex-xs="" flex-gt-xs="50" layout="column">
+        <md-card style="margin-top: 64px;">
+            <div flex="50" style="margin: auto; margin-top: 5px">
+                <img ng-src="img/def_user.png" class="md-card-image" alt="Washed Out">
+            </div>
+
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Diamond (ico) </span>
+                    <span class="">
+                        Score: 6,6k
+                        <md-button class="md-icon-button" aria-label="Favorite">
+                            <md-icon style="padding-right: 16px; color: #000000">share</md-icon>
+                        </md-button>
+                    </span>
+                    <span class="">(26h continue in the house 👍👏)</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>Congratulation, for 26 hours staying at home. Many thanks for your perseverance.</p>
+                <p>Yes, we know, it's hard to spend that long at home but you do it in favor of your near and far social
+                    environment.</p>
+                <p>Here are some nice ideas to fill the time with useful activities:</p>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Reading a book</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Clean out closet</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Sort folders with the thousand files on the PCStart meditating</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Do yoga</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Bake a cake</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Get the knitting out</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Wash curtains</p>
+                </md-list-item>
+                <md-list-item class="secondary-button-padding">
+                    <p>👉 Clean your windows to see the nice weather</p>
+                </md-list-item>
+
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+
+                <md-button class="md-icon-button" aria-label="Settings">
+                    <md-icon style="padding-right: 16px; color: #000000">favorite_border</md-icon>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <md-icon style="padding-right: 16px; color: #000000">not_listed_location</md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</div>
